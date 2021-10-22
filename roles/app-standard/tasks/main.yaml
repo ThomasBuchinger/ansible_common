@@ -1,0 +1,17 @@
+- name: Std Apps / Install tmux and vim
+  ansible.builtin.yum:
+    name: 
+      - cloc
+      - fzf
+      - git
+      - gparted
+      - httpd-tools
+      - htop
+      - jq
+      - tmux
+      - vim
+    state: present
+  become: yes
+
+
+ 

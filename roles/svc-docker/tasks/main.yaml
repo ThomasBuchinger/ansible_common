@@ -1,0 +1,16 @@
+- name: Docker / Install Docker engine
+  ansible.builtin.yum:
+    name: 
+      - moby-engine
+      - podman
+      - buildah
+      - skopeo
+    state: present
+  become: yes
+
+- name: Docker / Start Daemon
+  ansible.builtin.systemd:
+    name: docker.service
+    enabled: yes
+    state: started
+  become: yes
