@@ -1,0 +1,25 @@
+- name: Homebrew / Create directories
+  ansible.builtin.file:
+    name: "~/{{ item }}"
+    state: directory
+  loop:
+    - bin
+    - .bashrc.d
+
+- name: Homebrew / Download installer script
+  ansible.builtin.get_url:
+    url: https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
+    dest: ~/bin/install-homebrew.sh
+    mode: 0755
+  register: brew_installer
+
+- name: Homebrew / Install Homebrew
+  ansible.builtin.command:
+    cmd: "{{ brew_installer.dest }}"
+    stdin: ""
+  when: brew_installer.changed
+
+- name: Homebrew / Configure PATH
+  ansible.builtin.copy:
+    content: 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"'
+    dest: ~/.bashrc.d/homebrew

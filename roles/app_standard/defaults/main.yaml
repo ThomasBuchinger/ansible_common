@@ -1,0 +1,11 @@
+default_packages:
+  - cloc
+  - fzf
+  - git
+  - htop
+  - jq
+  - tmux
+  - vim
+
+redhat_packages:
+  - httpd-tools

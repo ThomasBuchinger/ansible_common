@@ -1,3 +1,3 @@
 - import_tasks: install.yaml
   tags:
-    - app_standard:install
+    - app_standard_graphical:install

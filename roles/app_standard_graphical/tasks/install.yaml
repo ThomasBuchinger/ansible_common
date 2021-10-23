@@ -1,0 +1,6 @@
+- name: Std Apps / Install gparted
+  ansible.builtin.package:
+    name:
+      - gparted
+    state: present
+  become: yes

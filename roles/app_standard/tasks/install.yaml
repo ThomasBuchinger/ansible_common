@@ -1,0 +1,6 @@
+- name: Std Apps / Install tmux and vim
+  ansible.builtin.package:
+    name: "{{ default_packages + redhat_packages }}"
+    state: present
+  become: yes
+
