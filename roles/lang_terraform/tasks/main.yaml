@@ -1,0 +1,13 @@
+---
+- import_tasks: vars.yaml
+  tags:
+    - app_terraform
+    - app_terraform:install
+- import_tasks: terraform.yaml
+  tags:
+    - app_terraform
+    - app_terraform:install
+- import_tasks: download.yaml
+  tags:
+    - app_terraform
+    - app_terraform:images
