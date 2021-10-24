@@ -1,6 +1,6 @@
 - name: Libvirt / Download common OS images
   ansible.builtin.get_url:
-    name: "/var/lib/libvirt/images/{{ item.name }}"
+    dest: "/var/lib/libvirt/images/{{ item.name }}"
     url: "{{ item.url }}"
     state: present
   loop: "{{ svc_libvirt_images }}"
