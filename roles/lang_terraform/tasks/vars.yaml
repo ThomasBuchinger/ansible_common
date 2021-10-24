@@ -1,9 +1,4 @@
 ---
-- name: Hashicorp Repo / Set URL for RPM Distros
-  ansible.builtin.set_fact:
-    hashicorp_release: RHEL
-    hashicorp_release_version: "8"
-  when: ansible_os_family == "RedHat"
 
 - name: Hashicorp Repo / Set URL for CentOS/RHEL and clones
   ansible.builtin.set_fact:
@@ -21,3 +16,11 @@
   when:
     - ansible_os_family == "RedHat"
     - ansible_distribution == "Fedora"
+
+- name: Hashicorp Repo / Set URL for other RPM Distros
+  ansible.builtin.set_fact:
+    hashicorp_release: RHEL
+    hashicorp_release_version: "8"
+  when:
+    - hashicorp_release is not defined
+    - ansible_os_family == "RedHat"
