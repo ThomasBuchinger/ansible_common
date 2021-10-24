@@ -1,7 +1,7 @@
-- name: Terraform / Preload OS images
+- name: Libvirt / Download common OS images
   ansible.builtin.get_url:
     name: "/var/lib/libvirt/images/{{ item.name }}"
     url: "{{ item.url }}"
     state: present
-  loop: "{{ lang_terraform_libvirt_images }}"
+  loop: "{{ svc_libvirt_images }}"
 

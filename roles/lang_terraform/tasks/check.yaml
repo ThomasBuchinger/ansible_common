@@ -1,0 +1,7 @@
+---
+- name: Check / hashicorp_release is set
+  ansible.builtin.assert:
+    that:
+      - hashicorp_release is defined
+      - hashicorp_release | length > 1
+  fail_msg: Installing Terraform is currently only supported on RedHat family OS.

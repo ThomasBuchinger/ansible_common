@@ -1,0 +1,5 @@
+---
+- import_tasks: download.yaml
+  tags:
+    - svc_libvirt_images
+    - svc_libvirt_images:images
