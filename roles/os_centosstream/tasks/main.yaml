@@ -2,5 +2,13 @@
   ansible.builtin.dnf:
     name: firewalld
     state: present
-  notify: start_firewalld
   become: yes
+  register: firewalld_installed
+
+- name: Firewalld / Start Service, if it was just installed
+  ansible.builtin.systemd:
+    name: firewalld
+    state: started
+    enabled: yes
+  become: yes
+  when: firewalld_installed.changed

@@ -1,6 +1,0 @@
-- name: start_firewalld
-  ansible.builtin.systemd:
-    name: firewalld
-    state: started
-    enabled: yes
-  become: yes
