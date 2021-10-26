@@ -1,0 +1,5 @@
+- name: Firewalld / Ensuce Firewalld ist installed
+  ansible.builtin.dnf:
+    name: firewalld
+    state: present
+  notify: start_firewalld
